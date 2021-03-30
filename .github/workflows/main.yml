@@ -15,10 +15,10 @@ jobs:
       # 打包构建
       - name: Build
         uses: actions/setup-node@master
-      - run: cd ./rw-nuxt
-      - run: npm install
-      - run: npm run build
-      - run: tar -zcvf release.tgz .nuxt static nuxt.config.js package.json yarn.lock
+        run: npm install
+        run: npm run build
+        run: tar -zcvf release.tgz .nuxt static nuxt.config.js package.json yarn.lock
+        working-directory: ./rw-nuxt
 
       # 发布 Release
       - name: Create Release
@@ -40,7 +40,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./release.tgz
+          asset_path: ./rw-nuxt/release.tgz
           asset_name: release.tgz
           asset_content_type: application/x-tgz
 
