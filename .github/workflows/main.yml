@@ -17,7 +17,7 @@ jobs:
         uses: actions/setup-node@master
       - run: cd ./rw-nuxt && npm install
       - run: cd ./rw-nuxt && npm run build
-      - run: cd ./rw-nuxt && tar -zcvf release.tgz .nuxt static nuxt.config.js package.json yarn.lock
+      - run: cd ./rw-nuxt && tar -zcvf release.tgz .nuxt static nuxt.config.js package.json yarn.lock pm2.config.json
 
       # 发布 Release
       - name: Create Release
