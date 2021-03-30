@@ -15,10 +15,9 @@ jobs:
       # 打包构建
       - name: Build
         uses: actions/setup-node@master
-        run: npm install
-        run: npm run build
-        run: tar -zcvf release.tgz .nuxt static nuxt.config.js package.json yarn.lock
-        working-directory: ./rw-nuxt
+      - run: cd ./rw-nuxt && npm install
+      - run: cd ./rw-nuxt && npm run build
+      - run: cd ./rw-nuxt && tar -zcvf release.tgz .nuxt static nuxt.config.js package.json yarn.lock
 
       # 发布 Release
       - name: Create Release
