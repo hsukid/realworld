@@ -1,7 +1,7 @@
 import Axios from 'axios'
 
 export const service = Axios.create({
-  baseURL: 'https://conduit.productionready.io/api',
+  baseURL: 'http://realworld.api.fed.lagounews.com/api',
 })
 
 export default ({ store, router, route }) => {
